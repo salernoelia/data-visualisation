@@ -1,6 +1,6 @@
 async function fetchData() {
   try {
-    const response = await fetch('data.json');
+    const response = await fetch('../data.json');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -12,7 +12,6 @@ async function fetchData() {
 // Call the function and use the data
 fetchData()
   .then(data => {
-    // Work with your JSON data here
     data.forEach(item => {
       // const habitats = item.Habitat_name;
       const habitatsDiv = document.querySelector('.habitats');
