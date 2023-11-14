@@ -35,7 +35,7 @@ totalCurrentStorage: d3.sum(value, d => d.currentStorage),
 const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
 // Set up the SVG dimensions and margins
-const margin = { top: 20, right: 20, bottom: 30, left: 100 };
+const margin = { top: 20, right: 20, bottom: 150, left: 100 };
 const width = 1200 - margin.left - margin.right;
 const height = 800 - margin.top - margin.bottom;
 
@@ -92,6 +92,7 @@ svg.selectAll('.bar-group')
 .attr('height', d => height - yScale(d.value));
 
 // Optional: Add labels to the bars
+// Optional: Add labels to the bars
 svg.selectAll('.bar-label')
   .data(groupedData)
   .enter().append('text')
@@ -101,8 +102,43 @@ svg.selectAll('.bar-label')
   .attr('text-anchor', 'middle')
   .attr('font-family', 'Arial')
   .attr('font-size', '12px')
-  .text(d => ` ${d.totalCurrentStorage} Gt, ${d.totalPotentialStorage} Gt`);
+  .text(d => `${d.totalCurrentStorage}, ${d.totalPotentialStorage}`);
 
+// Add a caption for current storage
+svg.append('text')
+  .attr('class', 'caption')
+  .attr('x', width / 2)
+  .attr('y', height + 50) // Adjust the y position
+  .attr('text-anchor', 'middle')
+  .attr('font-family', 'Arial')
+  .attr('font-size', '14px')
+  .text('Current Storage (Gt)');
+
+  svg.append('rect')
+  .attr('class', 'color-box')
+  .attr('x', width / 2 - 100) // Adjust the x position
+  .attr('y', height+ 35) // Adjust the y position
+  .attr('width', 30)
+  .attr('height', 20)
+  .attr('fill', colorScale('current'));
+
+// Add a caption for potential storage
+svg.append('text')
+  .attr('class', 'caption')
+  .attr('x', width / 2)
+  .attr('y', height + 75) // Adjust the y position
+  .attr('text-anchor', 'middle')
+  .attr('font-family', 'Arial')
+  .attr('font-size', '14px')
+  .text('Potential  Storage (Gt)');
+
+  svg.append('rect')
+  .attr('class', 'color-box')
+  .attr('x', width / 2 - 100) // Adjust the x position
+  .attr('y', height+ 60) // Adjust the y position
+  .attr('width', 30)
+  .attr('height', 20)
+  .attr('fill', colorScale('potential'));
 
   })
   .catch(error => {
