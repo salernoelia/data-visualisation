@@ -1,0 +1,26 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0 0 30px;
+}
+
+.task-list {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.task-link {
+  transition: all 0.2s ease-in-out;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+.task-link:hover {
+  font-size: 20px;
+  color: #343434;
+}

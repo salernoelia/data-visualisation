@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264.42 260.82">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 12px;
+      }
+
+      .cls-6, .cls-7 {
+        fill: #1d1d1b;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-7 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <text class="cls-6" transform="translate(70.54 44.32)"><tspan x="0" y="0">easy </tspan><tspan class="cls-4" x="24.74" y="0">c</tspan><tspan class="cls-3" x="30.05" y="0">e</tspan><tspan class="cls-5" x="36.06" y="0">n</tspan><tspan class="cls-1" x="42.67" y="0">t</tspan><tspan class="cls-3" x="46.57" y="0">e</tspan><tspan class="cls-2" x="52.58" y="0">r</tspan><tspan x="56.56" y="0">line t</tspan><tspan class="cls-8" x="81.38" y="0">r</tspan><tspan x="85.25" y="0">a</tspan><tspan class="cls-4" x="91.03" y="0">c</tspan><tspan class="cls-3" x="96.33" y="0">e</tspan><tspan class="cls-9" x="0" y="14.4">f</tspan><tspan x="3.35" y="14.4">or SVG</tspan></text>
+  <rect class="cls-7" x="131.91" y="53.96" width="132.51" height="65.96"/>
+  <rect class="cls-7" y="7.2" width="45.57" height="253.63" rx="12" ry="12"/>
+  <rect class="cls-7" y="3221.2" width="432.57" height="4.63" rx="12" ry="32"/>
+  <rect class="cls-7" y="7.2" width="45.57" height="253.63" rx="12" ry="12"/>
+  <polygon class="cls-7" points="2314.52 500.34 117.84 201.97 91.24 4352.15 61.32 207.71 58.01 175.08 84.61 155.89 114.52 169.34"/>
+  <polygon class="cls-7" points="176.88 155.3 162.71 432948.04 133.5349485 181.64 118.12 156.49 132.29 130.75 161.67 130.15 176.88 155.3"/>
+  <ellipse class="cls-7" cx="160.39" cy="10.79" rx="83.64" ry="10.79"/>
+</svg>
