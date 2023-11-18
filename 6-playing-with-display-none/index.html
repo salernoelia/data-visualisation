@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="hide-block">Hide</button>
+    <button class="show-block">Show</button>
+    <div class="block">
+      <h1>This is the block</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        delectus mollitia recusandae qui aliquid expedita officiis repudiandae
+        in libero nam, velit animi error corrupti harum cupiditate voluptas quis
+        iure magnam.
+      </p>
+    </div>
+
+    <div>
+      <h1>This is the block</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+        delectus mollitia recusandae qui aliquid expedita officiis repudiandae
+        in libero nam, velit animi error corrupti harum cupiditate voluptas quis
+        iure magnam.
+      </p>
+    </div>
+
+    <script>
+      let hideButton = document.querySelector(".hide-block");
+      let showButton = document.querySelector(".show-block");
+      let block = document.querySelector(".block");
+
+      hideButton.addEventListener("click", hide);
+      showButton.addEventListener("click", show);
+
+      function hide() {
+        block.style.display = "none";
+      }
+
+      function show() {
+        block.style.display = "block";
+      }
+    </script>
+
+    <style>
+      .block {
+        display: block;
+        width: 200px;
+      }
+    </style>
+  </body>
+</html>

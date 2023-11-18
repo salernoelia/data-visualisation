@@ -6,7 +6,44 @@
     <title>Document</title>
   </head>
   <body>
-    <iframe src="bocchi-bocchi-the-rock.gif" frameborder="0"></iframe>
-    <img src="svg.svg" alt="" srcset="" />
+    <!-- <iframe src="bocchi-bocchi-the-rock.gif" frameborder="0"></iframe> -->
+    <!-- <img src="svg.svg" alt="" srcset="" /> -->
+    <button class="animate">Animate</button>
+    <div class="balken"></div>
+
+    <style>
+      .balken {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+
+    <script>
+      let balken = document.querySelector(".balken");
+      let animateButton = document.querySelector(".animate");
+
+      animateButton.addEventListener("click", animate);
+
+      function animate() {
+        balken.animate(
+          [
+            {
+              width: "20px",
+              fill: "green",
+            },
+            {
+              width: "200px",
+              fill: "lime",
+            },
+          ],
+          {
+            duration: 2000,
+            iterations: 1,
+            fill: "forwards",
+          }
+        );
+      }
+    </script>
   </body>
 </html>

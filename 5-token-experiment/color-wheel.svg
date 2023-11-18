@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 387.52 387.52">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-7 {
+        stroke: #fff;
+      }
+
+      .cls-7, .cls-8, .cls-9 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-8 {
+        fill: #fff;
+        stroke: #000;
+      }
+
+      .cls-3 {
+        fill: url(#Unbenannter_Verlauf_5);
+      }
+
+      .cls-4 {
+        fill: url(#Unbenannter_Verlauf_3);
+      }
+
+      .cls-5 {
+        fill: url(#Unbenannter_Verlauf_2);
+      }
+
+      .cls-9 {
+        fill: url(#Unbenannter_Verlauf_4);
+        stroke: #e2b698;
+      }
+    </style>
+    <radialGradient id="Unbenannter_Verlauf" data-name="Unbenannter Verlauf" cx="195.11" cy="191.19" fx="195.11" fy="191.19" r="187.51" gradientTransform="translate(0 387.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#33464c"/>
+      <stop offset="1" stop-color="#33344c"/>
+    </radialGradient>
+    <radialGradient id="Unbenannter_Verlauf_2" data-name="Unbenannter Verlauf 2" cx="190.88" cy="191.19" fx="190.88" fy="191.19" r="187.73" gradientTransform="translate(0 387.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ea5454"/>
+      <stop offset="1" stop-color="#e6473a"/>
+    </radialGradient>
+    <radialGradient id="Unbenannter_Verlauf_3" data-name="Unbenannter Verlauf 3" cx="190.88" cy="194.58" fx="12.77" fy="125.01" r="191.21" gradientTransform="translate(0 387.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a9c4a8"/>
+      <stop offset="1" stop-color="#89c4a8"/>
+    </radialGradient>
+    <radialGradient id="Unbenannter_Verlauf_4" data-name="Unbenannter Verlauf 4" cx="194.26" cy="196.27" fx="194.26" fy="196.27" r="193.54" gradientTransform="translate(0 387.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fed7b8"/>
+      <stop offset="1" stop-color="#e2b698"/>
+    </radialGradient>
+    <radialGradient id="Unbenannter_Verlauf_5" data-name="Unbenannter Verlauf 5" cx="192.73" cy="193.08" fx="192.73" fy="193.08" r="83.33" gradientTransform="translate(0 387.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43444c"/>
+      <stop offset="1" stop-color="#2f3236"/>
+    </radialGradient>
+  </defs>
+  <path class="cls-1" d="m193.51,194.01v193.51c106.87,0,193.51-86.64,193.51-193.51h-193.51Z"/>
+  <path class="cls-5" d="m0,194.01c0,106.87,86.64,193.51,193.51,193.51v-193.51H0Z"/>
+  <path class="cls-4" d="m0,194.01h193.51V.5C86.64.5,0,87.14,0,194.01Z"/>
+  <path class="cls-9" d="m193.51.5v193.51h193.51C387.02,87.14,300.38.5,193.51.5Z"/>
+  <path class="cls-3" d="m214.18,117.59l-9.54-28.91-11.13-33.74-11.13,33.74-9.54,28.91c-33.7,9.09-58.5,39.85-58.5,76.42,0,43.72,35.44,79.16,79.16,79.16s79.16-35.44,79.16-79.16c0-36.57-24.8-67.33-58.5-76.42h.02Z"/>
+  <g id="empty">
+    <polygon class="cls-2" points="193.51 265.6 171.25 265.6 182.38 299.34 193.51 333.08 204.64 299.34 215.77 265.6 193.51 265.6"/>
+    <polygon class="cls-2" points="121.92 194.01 121.92 216.27 88.18 205.14 54.44 194.01 88.18 182.88 121.92 171.75 121.92 194.01"/>
+    <polygon class="cls-2" points="265.1 194.01 265.1 216.27 298.84 205.14 332.58 194.01 298.84 182.88 265.1 171.75 265.1 194.01"/>
+  </g>
+  <ellipse class="cls-8" cx="116.06" cy="74.95" rx="36.92" ry="8.14"/>
+  <ellipse class="cls-8" cx="286.59" cy="79.02" rx="38.49" ry="11.58"/>
+  <ellipse class="cls-7" cx="115.59" cy="74.48" rx="2.35" ry="1.41"/>
+  <ellipse class="cls-7" cx="289.24" cy="78.71" rx="2.97" ry="1.88"/>
+  <path class="cls-8" d="m73.53,251.32s70.48,50.15,108.85,48.02,117.73-45.15,117.73-45.15c0,0,84.13,22.95,17.21,60.23s-177.82,43.02-214.15,12.43-58.32-41.11-56.41-54.49,26.77-21.03,26.77-21.03Z"/>
+  <path class="cls-6" d="m166.35,298.07v25.89l37.63-1.01-.34-26.9s-25.46,6.07-37.29,2.02Z"/>
+</svg>
