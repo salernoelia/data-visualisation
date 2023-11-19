@@ -7,7 +7,7 @@ let jsonData;
             return jsonData;
         } catch (error) {
             console.error('Error loading JSON file:', error);
-            throw error;
+            throw error;ß
         }
     }
 
