@@ -55,14 +55,24 @@ function updateIcicleDiagram(data, index) {
   const color = d3.scaleOrdinal(d3.schemeCategory10);
 
   // Draw rectangles
-  svg.selectAll('rect')
-      .data(nodes)
-      .enter().append('rect')
-      .attr('y', d => d.x0) // Swap x and y
-      .attr('x', d => d.y0) // Swap x and y
-      .attr('height', d => d.x1 - d.x0)
-      .attr('width', d => d.y1 - d.y0)
-      .attr('fill', (d, i) => color(i)); // Use the index as the color
+
+    svg.selectAll('rect')
+        .data(nodes)
+        .enter().append('rect')
+        .attr('y', d => d.x0) // Swap x and y
+        .attr('x', d => d.y0) // Swap x and y
+        .attr('height', d => d.x1 - d.x0)
+        .attr('width', d => d.y1 - d.y0)
+        .attr('fill', (d, i) => color(i)) // Use the index as the color
+        .transition() // Add transition
+        .duration(1000) // Set duration in milliseconds
+        .delay((d, i) => i * 10) // Delay each transition slightly
+        .attr('y', d => d.x0) // Swap x and y
+        .attr('x', d => d.y0) // Swap x and y
+        .attr('height', d => d.x1 - d.x0)
+        .attr('width', d => d.y1 - d.y0)
+        .attr('fill', (d, i) => color(i)); // Use the index as the color
+
 
   // Create legend
   const legend = svg.selectAll('.legend')
