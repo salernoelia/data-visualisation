@@ -27,6 +27,8 @@ document.getElementById('indexSelect').addEventListener('change', function() {
 
 const tokenLocations = [];
 
+var tokenPlacementCheck = false;
+
 function updateIcicleDiagram(data, index) {
 
     // Clear the existing SVG content
@@ -168,52 +170,52 @@ function listenToTokens() {
       } catch (error) {
         return;
       }
-
       const data = json.args;
-      const tokenVis = document.querySelector('.token-vis');
-      tokenVis.style.left = `${data.relativeX *100}%`; // Adjusting for the width of .token-vis
-      tokenVis.style.top = `${data.relativeY * 100}%`;  // Adjusting for the height of .token-vis
+const tokenVis = document.querySelector('.token-vis');
+const touchtable = document.querySelector('.touchtable');
+const tokenPlacement = document.querySelector('.token-placement');
 
-      console.log("X & Y: ", data.relativeX, data.relativeY)
-      // tokenVis.style.transform = `translate(${data.relativeX *100}%, ${data.relativeY*100}%)`;
-      console.log("X & Y: ", data.relativeX, data.relativeY)
+// Convert relative coordinates to pixels based on the size of the touchtable
+const touchtableRect = touchtable.getBoundingClientRect();
+const absoluteX = touchtableRect.left + touchtableRect.width * data.relativeX;
+const absoluteY = touchtableRect.top + touchtableRect.height * data.relativeY;
 
-      // Your data object with relativeX and relativeY properties
+// Set the position of tokenVis using absolute coordinates
+tokenVis.style.left = `${absoluteX}px`;
+tokenVis.style.top = `${absoluteY}px`;
 
-      // Get the dimensions and position of the touchtable div
-      const touchtable = document.querySelector('.touchtable');
-      const touchtableRect = touchtable.getBoundingClientRect();
-      
-      const tokenPlacement = document.querySelector('.token-placement');
+console.log("X & Y in pixels: ", absoluteX, absoluteY);
 
-      // Calculate absolute position based on relative values
-      const relativeX = touchtableRect.left + touchtableRect.width * data.relativeX;
-      const relativeY = touchtableRect.top + touchtableRect.height * data.relativeY;
-
-      // Get the dimensions and position of the token placement point
-      const tokenPlacementRect = tokenPlacement.getBoundingClientRect();
-
-      // Check if the absolute position is within the boundaries of the token placement point
-      if (
-        relativeX >= tokenPlacementRect.left &&
-        relativeX <= tokenPlacementRect.right &&
-        relativeY >= tokenPlacementRect.top &&
-        relativeY <= tokenPlacementRect.bottom
-      ) {
-        console.log('The token is over the token placement point.');
-      } else {
-        console.log('The token is not over the token placement point.');
-      }
+// Get the dimensions and position of the token placement point with a 100-pixel margin
+const tokenPlacementRect = tokenPlacement.getBoundingClientRect();
+const enlargedTokenPlacementRect = {
+  left: tokenPlacementRect.left - 100,
+  top: tokenPlacementRect.top - 100,
+  right: tokenPlacementRect.right + 100,
+  bottom: tokenPlacementRect.bottom + 100
+};
 
 
-      
-     
-  
+
+// Check if the absolute position is within the enlarged boundaries of the token placement point
+if (
+  absoluteX >= enlargedTokenPlacementRect.left &&
+  absoluteX <= enlargedTokenPlacementRect.right &&
+  absoluteY >= enlargedTokenPlacementRect.top &&
+  absoluteY <= enlargedTokenPlacementRect.bottom
+) {
+  console.log('The token is over the token placement point.');
+  tokenPlacementCheck = true;
+} else {
+  console.log('The token is not over the token placement point.');
+  tokenPlacementCheck = false;
+}
+
       console.log("New data from token: ", data);
-  
+
       if (json?.type === "/tracker/add") {
         
-      } else if (json?.type === "/tracker/update") {
+      } else if (json?.type === "/tracker/update" && tokenPlacementCheck) {
         updateTokenIndex(data);
       }
 
