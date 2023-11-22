@@ -1,6 +1,6 @@
 
 
-const margin = 5000; // Adjust this value based on your preference
+const margin = 7000; // Adjust this value based on your preference
 var cubes = [];
 var labels = [];
 
@@ -12,9 +12,7 @@ function createCubesWithLabels(scene, font, data) {
     return sizeA - sizeB;
   });
 
-
-  console.log(data[0].Area_Habitat);
-  const cubeDepth = 50; // Depth of the cubes
+  const cubeDepth = 100; // Depth of the cubes
 
   for (let i = 0; i < data.length; i++) {
     const cubeData = data[i];

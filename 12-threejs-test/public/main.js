@@ -159,7 +159,7 @@ window.addEventListener('resize', onWindowResize, false);
 
 function onMouseWheel(event) {
   // Adjust the zoom speed based on your preference
-  camera.position.z += event.deltaY * 0.1;
+  camera.position.z += event.deltaY * 2;
 }
 
 document.addEventListener('wheel', onMouseWheel, false);
