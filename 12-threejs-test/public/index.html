@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js 3D Blocks with Shadows</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      canvas {
+        display: block;
+        pointer-events: none; /* Pass mouse events through the canvas */
+      }
+
+      #sizeMultiplier {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1;
+        pointer-events: auto; /* Allow mouse events on input elements */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controlPanel">
+      <select id="sizeMultiplier" onchange="updateCubeSizes(this.value)">
+        <option value="1">1x</option>
+        <option value="2">2x</option>
+        <option value="3">3x</option>
+        <option value="4">4x</option>
+        <option value="5">5x</option>
+      </select>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
