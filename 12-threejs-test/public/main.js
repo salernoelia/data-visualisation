@@ -3,12 +3,14 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
-  0.1,
+  1,
   100000
 );
+
+
 // Adjust camera position to zoom out and focus on the line of cubes
-camera.position.set(0, 500, 3000);
-camera.lookAt(0, 0, 0);
+camera.position.set(2000, 800, 3000);
+camera.lookAt(1500, 400, 0);
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -64,7 +66,7 @@ ground.rotation.x = -Math.PI / 2;
 ground.position.y = -150;
 ground.position.z = -150;
 ground.receiveShadow = true;
-scene.add(ground);
+// scene.add(ground);
 
 
       document.addEventListener("mousedown", onMouseDown, false);
@@ -162,4 +164,6 @@ function onMouseWheel(event) {
 
 document.addEventListener('wheel', onMouseWheel, false);
 
+
+// Assuming you have a scene, font, data, and camera defined
 

@@ -1,15 +1,19 @@
-const margin = 1200; // Adjust this value based on your preference
+
+
+const margin = 5000; // Adjust this value based on your preference
 var cubes = [];
 var labels = [];
 
 function createCubesWithLabels(scene, font, data) {
   // Sort the data array based on the "Normalized_above_ground_current_storage" property
-  data.sort((a, b) => {
+  data.sort((b, a) => {
     const sizeA = parseFloat(a.Normalized_above_ground_current_storage);
     const sizeB = parseFloat(b.Normalized_above_ground_current_storage);
     return sizeA - sizeB;
   });
 
+
+  console.log(data[0].Area_Habitat);
   const cubeDepth = 50; // Depth of the cubes
 
   for (let i = 0; i < data.length; i++) {
@@ -25,8 +29,8 @@ function createCubesWithLabels(scene, font, data) {
 
     // Create cube
     var cubeGeometry = new THREE.BoxGeometry(
-      50 * scaleMultiplier, // Adjust the base size of the cubes
-      50 * scaleMultiplier,
+      200 * scaleMultiplier, // Adjust the base size of the cubes
+      200 * scaleMultiplier,
       cubeDepth * scaleMultiplier
     );
     var cubeMaterial = new THREE.MeshStandardMaterial({
@@ -37,9 +41,9 @@ function createCubesWithLabels(scene, font, data) {
     var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
     // Position cubes in a row
-    cube.position.x = i * (200 + margin);
-    cube.position.y = cube.geometry.parameters.height / 2; // Adjusted Y position to avoid intersection
-    cube.position.z = 0; // All cubes will be on the same z-plane
+    cube.position.z = i * (200 + margin);
+    cube.position.x = cube.geometry.parameters.height / 2; // Adjusted Y position to avoid intersection
+    cube.position.y = 0; // All cubes will be on the same z-plane
 
     cube.castShadow = true;
     scene.add(cube);
@@ -49,7 +53,7 @@ function createCubesWithLabels(scene, font, data) {
     var labelText = `${habitatName}\nAbove Ground Storage: ${NormalizedAboveGroundStorage.toFixed(2)} Bn m³`;
     var textGeometry = new THREE.TextGeometry(labelText, {
       font: font,
-      size: 15, // Increased font size
+      size: 80, // Increased font size
       height: 1,
     });
     var textMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 }); // Black text
@@ -57,8 +61,9 @@ function createCubesWithLabels(scene, font, data) {
 
     // Position labels above each cube
     text.position.copy(cube.position);
-    text.position.y += cube.geometry.parameters.height / 2 + 15; // Adjust the label position
-    text.position.z += cubeDepth * scaleMultiplier / 2; // Adjusted to be in front of the cube
+    text.position.y += cube.geometry.parameters.height / 30 + 50; // Adjust the label position
+    text.position.x += 30; // Adjust the label position
+    text.position.z += cubeDepth * scaleMultiplier; // Adjusted to be in front of the cube
 
     scene.add(text);
     labels.push(text);
