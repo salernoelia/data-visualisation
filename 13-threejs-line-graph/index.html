@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script
+      type="module"
+      src="https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js"
+    ></script>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from "https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js";
+
+      const data = {
+        name: "Root",
+        children: [
+          { name: "Category 1", value: Math.random() * 100 },
+          { name: "Category 2", value: Math.random() * 100 },
+          { name: "Category 3", value: Math.random() * 100 },
+          { name: "Category 4", value: Math.random() * 100 },
+          { name: "Category 5", value: Math.random() * 100 },
+        ],
+      };
+
+      // Set up dimensions
+      const width = 600;
+      const height = 400;
+
+      // Create SVG container
+      const svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      // Create a hierarchical layout
+      const root = d3.hierarchy(data).sum((d) => d.value);
+
+      // Create color scale
+      const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+      // Create partition layout
+      const partition = d3
+        .partition()
+        .size([width, height])
+        .padding(0)
+        .round(true);
+
+      // Apply the layout to our data
+      const nodes = partition(root).descendants();
+
+      // Draw rectangles
+      svg
+        .selectAll("rect")
+        .data(nodes)
+        .enter()
+        .append("rect")
+        .attr("x", (d) => d.x0)
+        .attr("y", (d) => d.y0)
+        .attr("width", (d) => d.x1 - d.x0)
+        .attr("height", (d) => d.y1 - d.y0)
+        .attr("fill", (d) => color(d.depth));
+
+      const colors = [0x2194ce, 0xff6347, 0x8a2be2, 0x00fa9a, 0xffd700];
+      // Read out d3.js generated rectangles and import them to Three.js
+      // Read out d3.js generated rectangles and import them to Three.js
+      const rectangles = svg.selectAll("rect").nodes();
+
+      // Create a Three.js scene
+      const scene = new THREE.Scene();
+
+      // Add axes helpers
+      const axesHelper = new THREE.AxesHelper(100);
+      scene.add(axesHelper);
+
+      // Create a Three.js extruded geometry for each rectangle
+      rectangles.forEach((rectangle, index) => {
+        let rectWidth = parseFloat(rectangle.getAttribute("width")) / 6;
+        let rectHeight = parseFloat(rectangle.getAttribute("height")) / 6;
+
+        // Generate a random extrusion depth between 10 and 30
+        const rectDepth = Math.random() * (30 - 10) + 10;
+
+        const geometry = new THREE.ExtrudeGeometry(
+          new THREE.Shape([
+            new THREE.Vector2(0, 0),
+            new THREE.Vector2(rectWidth, 0),
+            new THREE.Vector2(rectWidth, rectHeight),
+            new THREE.Vector2(0, rectHeight),
+            new THREE.Vector2(0, 0),
+          ]),
+          { depth: rectDepth, bevelEnabled: false }
+        );
+
+        const material = new THREE.MeshLambertMaterial({
+          color: colors[index % colors.length],
+        });
+        const mesh = new THREE.Mesh(geometry, material);
+        const xPosition =
+          (parseFloat(rectangle.getAttribute("x")) + rectHeight) / 6;
+        const yPosition =
+          -(
+            parseFloat(rectangle.getAttribute("y")) +
+            rectHeight / 2 -
+            height / 2
+          ) / 6;
+
+        // Set the position with z = 0
+        mesh.position.set(xPosition, yPosition, 0);
+
+        // mesh.scale.set(1 / 6, 1 / 6, 1 / 6);
+
+        scene.add(mesh);
+      });
+
+      // Add ambient light
+      const ambientLight = new THREE.AmbientLight(0x808080); // Increase intensity
+      scene.add(ambientLight);
+
+      // Add directional light
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7); // Increase intensity
+      directionalLight.position.set(1, 1, 1).normalize(); // Adjust position
+      scene.add(directionalLight);
+
+      // Create a camera
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        1000
+      );
+      camera.position.set(0, 0, 200); // Adjust camera position
+      camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the center of the scene
+
+      // Rotate the scene by 90 degrees on the X-axis
+      //   scene.rotation.x = -Math.PI / 2;
+      scene.rotation.x = -Math.PI / 3;
+
+      // Create a renderer
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Animation loop
+      const animate = function () {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>
